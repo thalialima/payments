@@ -1,7 +1,6 @@
 package br.com.ms.payments.controller;
 
 import br.com.ms.payments.dto.PaymentDTO;
-import br.com.ms.payments.model.Payment;
 import br.com.ms.payments.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -42,7 +41,7 @@ public class PaymentController {
         return ResponseEntity.created(uri).body(dto);
     }
 
-    @PutMapping(path = "/update")
+    @PutMapping(path = "/update/{id}")
     public ResponseEntity<PaymentDTO> updatePayment(@RequestBody @NotNull PaymentDTO paymentDTO, @PathVariable @Valid Long id) {
         PaymentDTO dto = paymentService.updatePayment(paymentDTO, id);
         return ResponseEntity.ok(dto);

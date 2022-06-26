@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
@@ -25,16 +24,16 @@ public class Payment {
     @NotNull
     @Positive
     private BigDecimal value;
-    @NotBlank
+
     @Size(max = 100)
     private String name;
-    @NotBlank
+
     @Size(max = 19)
     private String number;
-    @NotBlank
-    @Size(min = 7)
+
+    @Size(min = 5)
     private String expiration;
-    @NotBlank
+
     @Size(min = 3, max = 3)
     private String code;
     @NotNull
